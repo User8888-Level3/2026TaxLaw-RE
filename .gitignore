@@ -1,0 +1,16 @@
+# Generated HTML files
+*.html
+
+# Node modules (if any in future)
+node_modules/
+
+# macOS files
+.DS_Store
+
+# IDE files
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
