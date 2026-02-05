@@ -1,0 +1,1054 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Tax &amp; Real Estate Study Guide</title>
+<meta name="robots" content="index, follow"/>
+<style>
+  :root {
+    --bg: #f6f9ff;
+    --panel: rgba(255,255,255,0.86);
+    --panel2: rgba(255,255,255,0.92);
+    --text: rgba(18, 24, 40, 0.92);
+    --muted: rgba(18, 24, 40, 0.64);
+    --muted2: rgba(18, 24, 40, 0.52);
+    --accent: #ffb703;
+    --good: #22c55e;
+    --bad: #fb7185;
+    --shadow: 0 18px 50px rgba(16,24,40,0.14);
+    --radius: 22px;
+  }
+* { box-sizing: border-box; }
+  html, body{
+    margin:0;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    color: var(--text);
+    background: radial-gradient(900px 700px at 12% 10%, rgba(255,183,3,0.18), transparent 55%),
+                radial-gradient(900px 700px at 88% 20%, rgba(59,130,246,0.18), transparent 55%),
+                radial-gradient(900px 700px at 55% 105%, rgba(34,197,94,0.14), transparent 60%),
+                linear-gradient(180deg, #f7fbff, #f6f9ff);
+    overflow-x:hidden;
+  }body {
+    margin: 0;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    color: var(--text);
+    background: radial-gradient(1200px 800px at 20% 10%, rgba(255,215,0,0.14), transparent 55%),
+                radial-gradient(900px 700px at 85% 25%, rgba(99,102,241,0.18), transparent 55%),
+                radial-gradient(1000px 800px at 50% 110%, rgba(16,185,129,0.10), transparent 60%),
+                var(--bg);
+  }
+  a { color: inherit; }
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 28px 18px 44px;
+  }
+  header {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  h1 {
+    margin: 0;
+    font-size: clamp(22px, 3.2vw, 34px);
+    letter-spacing: 0.2px;
+  }
+  .sub {
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.35;
+  }
+  .toolbar {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: center;
+    margin-top: 10px;
+  }
+  .search {
+    display: grid;
+    gap: 8px;
+  }
+  .input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.16);
+    background: rgba(0,0,0,0.18);
+    color: var(--text);
+    outline: none;
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+    transition: 160ms ease;
+  }
+  .input:focus {
+    border-color: rgba(255,215,0,0.55);
+    box-shadow: 0 0 0 4px rgba(255,215,0,0.12);
+  }
+  .hint {
+    color: var(--muted2);
+    font-size: 13px;
+  }
+  .btns {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .btn {
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.08);
+    color: var(--text);
+    padding: 10px 12px;
+    border-radius: 14px;
+    transition: 160ms ease;
+    user-select: none;
+    font-weight: 600;
+  }
+  .btn:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.26);
+  }
+  .btn.primary {
+    background: rgba(255,215,0,0.18);
+    border-color: rgba(255,215,0,0.38);
+  }
+  .btn.primary:hover {
+    background: rgba(255,215,0,0.24);
+    border-color: rgba(255,215,0,0.55);
+  }
+  .btn.good {
+    background: rgba(52,211,153,0.16);
+    border-color: rgba(52,211,153,0.38);
+  }
+  .btn.bad {
+    background: rgba(251,113,133,0.14);
+    border-color: rgba(251,113,133,0.36);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1.4fr 0.6fr;
+    gap: 16px;
+    margin-top: 18px;
+  }
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: 1fr; }
+    .btns { justify-content: flex-start; }
+    .toolbar { grid-template-columns: 1fr; }
+  }
+  .cardArea {
+    position: relative;
+    min-height: 420px;
+    border-radius: var(--radius);
+    background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.06));
+    border: 1px solid rgba(255,255,255,0.14);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .cardTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    background: rgba(0,0,0,0.10);
+  }
+  .pill {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    padding: 8px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.14);
+    background: rgba(255,255,255,0.06);
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .pill strong {
+    color: var(--text);
+    font-weight: 800;
+  }
+  .progressWrap {
+    height: 10px;
+    width: 180px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.10);
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.10);
+  }
+  .progress {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, rgba(255,215,0,0.85), rgba(99,102,241,0.85));
+    border-radius: 999px;
+  }
+  .flipStage {
+    height: calc(100% - 56px);
+    display: grid;
+    place-items: center;
+    padding: 18px;
+  }
+  .flip {
+    width: min(760px, 100%);
+    height: min(420px, 60vh);
+    perspective: 1200px;
+  }
+  .inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 240ms ease;
+  }
+  .inner.flipped {
+    transform: rotateY(180deg);
+  }
+  .face {
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.14);
+    background: rgba(0,0,0,0.22);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+    padding: 18px 18px 16px;
+    backface-visibility: hidden;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 12px;
+    overflow: hidden;
+  }
+  .face.back {
+    transform: rotateY(180deg);
+  }
+  .label {
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.62);
+  }
+  .content {
+    font-size: clamp(16px, 2.1vw, 22px);
+    line-height: 1.35;
+    overflow: auto;
+    padding-right: 6px;
+  }
+  .content::-webkit-scrollbar {
+    width: 10px;
+  }
+  .content::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.16);
+    border-radius: 999px;
+    border: 2px solid rgba(0,0,0,0);
+    background-clip: padding-box;
+  }
+  .foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .kbd {
+    border: 1px solid rgba(255,255,255,0.16);
+    background: rgba(255,255,255,0.06);
+    padding: 3px 7px;
+    border-radius: 8px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.78);
+  }
+  .side {
+    border-radius: var(--radius);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 10px 36px rgba(0,0,0,0.28);
+    overflow: hidden;
+    min-height: 420px;
+  }
+  .sideHead {
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    background: rgba(0,0,0,0.10);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+  .sideBody {
+    padding: 12px 10px 14px;
+    max-height: 520px;
+    overflow: auto;
+  }
+  .sideBody::-webkit-scrollbar { width: 10px; }
+  .sideBody::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.14);
+    border-radius: 999px;
+    border: 2px solid rgba(0,0,0,0);
+    background-clip: padding-box;
+  }
+  .row {
+    display: grid;
+    gap: 6px;
+    padding: 10px 10px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.10);
+    background: rgba(0,0,0,0.16);
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: 140ms ease;
+  }
+  .row:hover {
+    background: rgba(0,0,0,0.24);
+    border-color: rgba(255,255,255,0.18);
+  }
+  .row .q {
+    color: rgba(255,255,255,0.92);
+    font-size: 13.5px;
+    line-height: 1.25;
+  }
+  .row .meta {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: rgba(255,255,255,0.60);
+    font-size: 12px;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.14);
+    background: rgba(255,255,255,0.06);
+  }
+  .badge.dot::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.30);
+  }
+  .badge.known {
+    border-color: rgba(52,211,153,0.38);
+    background: rgba(52,211,153,0.14);
+  }
+  .badge.known.dot::before { background: rgba(52,211,153,0.9); }
+  .badge.new {
+    border-color: rgba(255,215,0,0.34);
+    background: rgba(255,215,0,0.14);
+  }
+  .badge.new.dot::before { background: rgba(255,215,0,0.9); }
+  .toast {
+    position: fixed;
+    left: 50%;
+    bottom: 18px;
+    transform: translateX(-50%);
+    padding: 10px 12px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.16);
+    background: rgba(0,0,0,0.44);
+    color: rgba(255,255,255,0.9);
+    box-shadow: 0 16px 50px rgba(0,0,0,0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: 160ms ease;
+    font-size: 13px;
+  }
+  .toast.show { opacity: 1; }
+
+  .hbFooter{
+    margin-top: 26px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    background: rgba(0,0,0,0.14);
+  }
+  .hbFooterInner{
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 18px 18px 22px;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 16px;
+    align-items: center;
+  }
+  .hbFooterLogo{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.06);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.30);
+    text-decoration: none;
+  }
+  .hbFooterLogo img{
+    width: 100%;
+    max-width: 190px;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+  }
+  .hbFooterInfo{
+    display: grid;
+    gap: 6px;
+  }
+  .hbFooterTitle{
+    font-size: 14px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.78);
+  }
+  .hbFooterSub{
+    color: rgba(255,255,255,0.62);
+    font-size: 13px;
+  }
+  .hbFooterLines{
+    display: grid;
+    gap: 4px;
+    margin-top: 4px;
+    color: rgba(255,255,255,0.86);
+    font-size: 13.5px;
+    line-height: 1.25;
+  }
+  .hbFooterLine{
+    padding: 6px 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.10);
+    background: rgba(0,0,0,0.16);
+  }
+  .hbFooterLinkWrap{
+    margin-top: 6px;
+  }
+  .hbFooterLink{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,215,0,0.30);
+    background: rgba(255,215,0,0.14);
+    color: rgba(255,255,255,0.92);
+    text-decoration: none;
+    font-weight: 700;
+  }
+  .hbFooterLink:hover{
+    background: rgba(255,215,0,0.20);
+    border-color: rgba(255,215,0,0.46);
+  }
+  @media (max-width: 900px){
+    .hbFooterInner{
+      grid-template-columns: 1fr;
+    }
+    .hbFooterLogo{
+      justify-content: flex-start;
+      width: fit-content;
+    }
+  }
+
+
+  /* Light, happy motion */
+  .cardArea, .side, header{
+    animation: popIn 520ms ease both;
+  }
+  @keyframes popIn{
+    from{ opacity:0; transform: translateY(10px) scale(0.99); }
+    to{ opacity:1; transform: translateY(0) scale(1); }
+  }
+
+  .btn{
+    background: rgba(255,255,255,0.72);
+    border-color: rgba(16,24,40,0.10);
+    color: rgba(18,24,40,0.86);
+    box-shadow: 0 10px 24px rgba(16,24,40,0.10);
+    transform: translateY(0);
+  }
+  .btn:hover{
+    transform: translateY(-1px);
+    box-shadow: 0 14px 28px rgba(16,24,40,0.14);
+    border-color: rgba(16,24,40,0.14);
+  }
+  .btn.primary{
+    background: rgba(255,183,3,0.26);
+    border-color: rgba(255,183,3,0.34);
+  }
+  .btn.primary:hover{
+    background: rgba(255,183,3,0.32);
+  }
+  .btn.good{
+    background: rgba(34,197,94,0.18);
+    border-color: rgba(34,197,94,0.26);
+  }
+  .btn.bad{
+    background: rgba(251,113,133,0.16);
+    border-color: rgba(251,113,133,0.24);
+  }
+
+  .cardArea{
+    background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.78));
+    border: 1px solid rgba(16,24,40,0.10);
+  }
+  .cardTop{
+    background: rgba(255,255,255,0.72);
+    border-bottom: 1px solid rgba(16,24,40,0.10);
+  }
+  .pill{
+    background: rgba(255,255,255,0.78);
+    border: 1px solid rgba(16,24,40,0.10);
+    color: rgba(18,24,40,0.62);
+  }
+  .pill strong{ color: rgba(18,24,40,0.90); }
+
+  .progressWrap{
+    background: rgba(16,24,40,0.08);
+    border: 1px solid rgba(16,24,40,0.10);
+  }
+
+  .face{
+    background: rgba(255,255,255,0.82);
+    border: 1px solid rgba(16,24,40,0.10);
+  }
+  .label{
+    color: rgba(18,24,40,0.55);
+  }
+  .foot{
+    color: rgba(18,24,40,0.58);
+  }
+  .kbd{
+    border: 1px solid rgba(16,24,40,0.12);
+    background: rgba(255,255,255,0.78);
+    color: rgba(18,24,40,0.72);
+  }
+
+  .row{
+    background: rgba(255,255,255,0.76);
+    border: 1px solid rgba(16,24,40,0.10);
+  }
+  .row:hover{
+    transform: translateY(-1px);
+    transition: 160ms ease;
+    box-shadow: 0 12px 30px rgba(16,24,40,0.12);
+  }
+  .row .q{
+    color: rgba(18,24,40,0.90);
+  }
+  .row .meta{
+    color: rgba(18,24,40,0.55);
+  }
+
+  /* Background fun */
+  .bgFX{
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .wrap{ position: relative; z-index: 1; }
+
+  .blob{
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border-radius: 999px;
+    filter: blur(24px);
+    opacity: 0.55;
+    animation: drift 14s ease-in-out infinite;
+    mix-blend-mode: multiply;
+  }
+  .blob.b1{
+    left: -120px;
+    top: -120px;
+    background: rgba(255,183,3,0.42);
+    animation-duration: 16s;
+  }
+  .blob.b2{
+    right: -140px;
+    top: 40px;
+    background: rgba(59,130,246,0.30);
+    animation-duration: 18s;
+    animation-direction: reverse;
+  }
+  .blob.b3{
+    left: 22%;
+    bottom: -170px;
+    background: rgba(34,197,94,0.26);
+    animation-duration: 20s;
+  }
+  @keyframes drift{
+    0%{ transform: translate3d(0,0,0) scale(1); }
+    50%{ transform: translate3d(18px, -12px, 0) scale(1.05); }
+    100%{ transform: translate3d(0,0,0) scale(1); }
+  }
+
+  .spark{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: rgba(255,183,3,0.55);
+    box-shadow: 0 0 0 10px rgba(255,183,3,0.12);
+    opacity: 0.55;
+    animation: floaty 9s ease-in-out infinite;
+  }
+  .spark.s1{ left: 12%; top: 68%; animation-duration: 10s; background: rgba(255,183,3,0.50); }
+  .spark.s2{ left: 78%; top: 62%; animation-duration: 12s; background: rgba(59,130,246,0.38); box-shadow: 0 0 0 10px rgba(59,130,246,0.12); }
+  .spark.s3{ left: 60%; top: 22%; animation-duration: 11s; background: rgba(34,197,94,0.34); box-shadow: 0 0 0 10px rgba(34,197,94,0.10); }
+  .spark.s4{ left: 28%; top: 30%; animation-duration: 13s; background: rgba(251,113,133,0.30); box-shadow: 0 0 0 10px rgba(251,113,133,0.10); }
+
+  @keyframes floaty{
+    0%{ transform: translateY(0) scale(1); opacity:0.50; }
+    50%{ transform: translateY(-14px) scale(1.08); opacity:0.70; }
+    100%{ transform: translateY(0) scale(1); opacity:0.50; }
+  }
+
+  .toast{
+    background: rgba(255,255,255,0.92);
+    color: rgba(18,24,40,0.86);
+    border: 1px solid rgba(16,24,40,0.10);
+  }
+
+  .hbFooter{
+    background: rgba(255,255,255,0.72);
+    border-top: 1px solid rgba(16,24,40,0.10);
+  }
+  .hbFooterLogo{
+    background: rgba(255,255,255,0.88);
+    border: 1px solid rgba(16,24,40,0.10);
+    box-shadow: 0 12px 34px rgba(16,24,40,0.12);
+  }
+  .hbFooterLine{
+    background: rgba(255,255,255,0.82);
+    border: 1px solid rgba(16,24,40,0.10);
+    color: rgba(18,24,40,0.82);
+  }
+  .hbFooterTitle{ color: rgba(18,24,40,0.82); }
+  .hbFooterSub{ color: rgba(18,24,40,0.58); }
+  .hbFooterLink{
+    background: rgba(59,130,246,0.14);
+    border: 1px solid rgba(59,130,246,0.22);
+    color: rgba(18,24,40,0.86);
+  }
+  .hbFooterLink:hover{
+    background: rgba(59,130,246,0.18);
+    border-color: rgba(59,130,246,0.30);
+  }
+
+</style>
+</head>
+<body>
+
+  <div class="bgFX" aria-hidden="true">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+    <span class="blob b3"></span>
+    <span class="spark s1"></span>
+    <span class="spark s2"></span>
+    <span class="spark s3"></span>
+    <span class="spark s4"></span>
+  </div>
+
+  <div class="wrap">
+    <header>
+      <h1>Tax &amp; Real Estate Study Guide</h1>
+      <p class="sub">Prepared for Student Review</p>
+      <div class="toolbar" aria-label="Study controls">
+        <div class="search">
+          <input id="search" class="input" type="text" placeholder="Search questions or answers" autocomplete="off" />
+          <div class="hint">
+            Tap the card to flip. Keyboard: <span class="kbd">Space</span> flip, <span class="kbd">←</span> previous, <span class="kbd">→</span> next, <span class="kbd">K</span> known, <span class="kbd">S</span> shuffle
+          </div>
+        </div>
+        <div class="btns">
+          <button class="btn" id="prevBtn" type="button">Previous</button>
+          <button class="btn primary" id="flipBtn" type="button">Flip</button>
+          <button class="btn" id="nextBtn" type="button">Next</button>
+          <button class="btn good" id="knownBtn" type="button">Mark known</button>
+          <button class="btn" id="shuffleBtn" type="button">Shuffle</button>
+          <button class="btn" id="resetBtn" type="button">Reset</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="grid">
+      <div class="cardArea" aria-label="Flashcard viewer">
+        <div class="cardTop">
+          <div class="pill" id="countPill">Card <strong id="cardNum">1</strong> of <strong id="cardTotal">1</strong></div>
+          <div class="pill">Known <strong id="knownCount">0</strong></div>
+          <div class="progressWrap" aria-label="Progress"><div class="progress" id="progressBar"></div></div>
+        </div>
+
+        <div class="flipStage">
+          <div class="flip" id="flipStage">
+            <div class="inner" id="inner">
+              <div class="face front" id="frontFace" role="button" tabindex="0" aria-label="Flashcard front">
+                <div class="label">Question</div>
+                <div class="content" id="qText"></div>
+                <div class="foot">
+                  <span id="statusText"></span>
+                  <span>Tap to flip</span>
+                </div>
+              </div>
+              <div class="face back" id="backFace" role="button" tabindex="0" aria-label="Flashcard back">
+                <div class="label">Answer</div>
+                <div class="content" id="aText"></div>
+                <div class="foot">
+                  <span>Tap to flip</span>
+                  <span class="kbd">Space</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="side" aria-label="Card list">
+        <div class="sideHead">
+          <div class="pill">Filtered <strong id="filteredCount">0</strong></div>
+          <div class="pill">Total <strong id="allCount">0</strong></div>
+        </div>
+        <div class="sideBody" id="list"></div>
+      </aside>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+  const ALL_CARDS = [{"q": "1. What is the 2026 cap for the State and Local Tax (SALT) deduction?", "a": "40000"}, {"q": "2. What was the SALT deduction cap from 2017 until the 2026 tax law update?", "a": "10000"}, {"q": "3. Which specific taxes are grouped under the SALT deduction cap?", "a": "Property taxes, state income taxes, and DMV registration fees."}, {"q": "4. What is the 2026 standard deduction for married couples filing jointly?", "a": "31515"}, {"q": "5. What is the 2026 standard deduction for single filers?", "a": "15000"}, {"q": "6. Which tax provision allows businesses to fully expense equipment and technology purchases in the first year?", "a": "Section 179 (or Bonus Depreciation)."}, {"q": "7. What percentage of income is typically tax-free under the Qualified Business Income (QBI) deduction?", "a": "0.2"}, {"q": "8. What are two examples of pass-through entities eligible for the QBI deduction?", "a": "LLCs and S-corporations."}, {"q": "9. What is the maximum deductible amount for interest on a personal vehicle under the 2026 tax law?", "a": "10000"}, {"q": "10. To qualify for the personal vehicle interest deduction, where must the car's final assembly take place?", "a": "In the United States."}, {"q": "11. What method does the IRS use to verify a vehicle's manufacturing location for tax deductions?", "a": "Tracking the Vehicle Identification Number (VIN)."}, {"q": "12. The 'super catch-up' retirement contribution is available to taxpayers in which age range?", "a": "Ages 60 to 63."}, {"q": "13. What is the dollar amount allowed for the retirement 'super catch-up' contribution in 2026?", "a": "11000"}, {"q": "14. What is the 2026 reporting threshold for a standard 1099 form?", "a": "2000"}, {"q": "15. What is the 2026 reporting threshold for the 1099-K form used by payment platforms like Venmo?", "a": "600"}, {"q": "16. What is the IRS standard mileage rate for business use in 2025/2026?", "a": "70 cents per mile."}, {"q": "17. Why is a year-end oil change recommended for documenting business mileage?", "a": "It provides a third-party written record of the vehicle's odometer reading."}, {"q": "18. How many annual hours must a taxpayer spend managing property to be designated a 'real estate professional'?", "a": "750 hours."}, {"q": "19. What specific tax benefit does 'real estate professional' status provide regarding property losses?", "a": "It allows the taxpayer to take losses beyond the standard passive loss limits."}, {"q": "20. What are the two primary requirements for a business expense to be considered deductible by the IRS?", "a": "The expense must be both ordinary and necessary."}, {"q": "21. What is the maximum annual contribution allowed for self-employment retirement accounts in 2026?", "a": "$70,000 (or 25% of income)."}, {"q": "22. Why might a self-employed individual choose to show a higher net income rather than maximizing deductions?", "a": "To qualify for bank loans or mortgages that require proof of income."}, {"q": "23. What does the abbreviation 'RAD' stand for in California real estate forms?", "a": "Referral Addendum."}, {"q": "24. What is the primary disclosure requirement of the C.A.R. RAD form?", "a": "Agents must disclose any referral compensation they receive to the client."}, {"q": "25. What percentage of the purchase price is provided as a down payment in the CalHFA 'Dream for All' program?", "a": "0.2"}, {"q": "26. How does the CalHFA 'Dream for All' program recoup its 20% down payment assistance?", "a": "Through an equity share of the property's increased value upon sale or refinance."}, {"q": "27. What is a major eligibility requirement for the CalHFA 'Dream for All' program regarding the borrower's parents?", "a": "The borrower's parents must have never owned a home."}, {"q": "28. Which Alameda County program uses a lottery system to provide down payment assistance?", "a": "AC Boost."}, {"q": "29. What is the purpose of 'bonus depreciation' in business taxation?", "a": "To allow businesses to accelerate the depreciation of an asset to the first year of use."}, {"q": "30. According to the 'exclusive use' rule, when is a home office deduction valid?", "a": "Only if the space is used solely for business purposes."}, {"q": "31. What five pieces of information should be recorded on a business meal receipt for audit protection?", "a": "Who, what, when, where, and why."}, {"q": "32. What does the IRS 'DIF' score measure on a tax return?", "a": "The statistical likelihood that the return contains errors or warrants an audit."}, {"q": "33. What is the primary financial mechanism that drives mortgage interest rates in the US?", "a": "The bond market."}, {"q": "34. As of 2026, what major change occurred regarding Bay East's support of local marketing groups?", "a": "Bay East ceased providing financial and staff support to the groups."}, {"q": "35. Why is the increase of the SALT cap to $40,000 specifically beneficial for higher-end home buyers?", "a": "It allows them to deduct more of their significant property tax payments."}, {"q": "36. What is the main goal of 'Path One' for a 1099 independent contractor's tax strategy?", "a": "Minimizing current taxes by maximizing business expense deductions."}, {"q": "37. What is the primary tax risk of using a single bank account for both personal and business funds?", "a": "Co-mingling makes it difficult to verify and defend business deductions during an audit."}, {"q": "38. Which form is used to report income received through third-party processors like PayPal?", "a": "Form 1099-K."}, {"q": "39. What is the function of a 'cost segregation study' for real estate investors?", "a": "It reclassifies components of a property to allow for faster depreciation."}, {"q": "40. What are the three criteria for the 2026 personal vehicle interest deduction?", "a": "The vehicle must be new, for personal use, and assembled in the US."}, {"q": "41. What is the approximate combined tax rate for the employer and employee portions of self-employment tax?", "a": "0.15"}, {"q": "42. Why is using a dedicated credit card for business expenses considered a best practice for realtors?", "a": "It creates an automated, consolidated record for end-of-year tax preparation."}, {"q": "43. What is a 'standard deduction' in federal income tax?", "a": "A fixed amount that reduces taxable income for taxpayers who do not itemize."}, {"q": "44. Under IRS rules, when is a business meal considered 'necessary'?", "a": "When it is appropriate and helpful for the taxpayer's trade or business."}, {"q": "45. What is the objective of the 'super catch-up' retirement provision?", "a": "To allow older workers to significantly increase their tax-deferred savings as they approach retirement."}, {"q": "46. Which IRS form is used by sole proprietors to report their business profits and losses?", "a": "Schedule C."}, {"q": "47. How long do CalHFA lottery winners typically have to find a home once selected?", "a": "Three months."}, {"q": "48. When must the CalHFA equity share be repaid by the homeowner?", "a": "Upon selling the home or refinancing the original mortgage."}, {"q": "49. Why does the 2026 real estate update describe agents as 'canaries in the coal mine'?", "a": "They are often the first to detect emerging trends and shifts in the broader economy."}, {"q": "50. What was the zero-point jumbo mortgage rate quoted in early 2026?", "a": "0.05875"}, {"q": "51. How does the $40,000 SALT cap impact the decision to itemize deductions?", "a": "It makes itemizing more attractive by allowing a higher total for state and local taxes."}, {"q": "52. Is the 2026 car interest deduction of $10,000 available for business-use vehicles?", "a": "No, it is strictly limited to personal-use vehicles."}, {"q": "53. How does Section 179 accelerated depreciation benefit a business's first-year cash flow?", "a": "It reduces current tax liability by providing a larger immediate deduction."}, {"q": "54. Using the 70-cent mileage rate, what is the deduction for 10,000 business miles?", "a": "7000"}, {"q": "55. What is the trade-off of 'Path Two' (income maximization) for self-employed individuals?", "a": "It improves credit for loans but results in significantly higher current tax payments."}, {"q": "56. What evidence should be kept to support the home office tax deduction?", "a": "Photographs that demonstrate the space is set up exclusively for business work."}, {"q": "57. In the 2026 market update, what is the significance of the $1.7M home example?", "a": "It illustrates how property taxes can quickly exceed the old SALT cap, making the new cap essential."}, {"q": "58. What is the approximate income limit for the CalHFA program mentioned in the 2026 update?", "a": "360000"}, {"q": "59. What is the new total maximum deduction allowed for state income and property taxes combined?", "a": "40000"}, {"q": "60. What is the dollar limit for 'super catch-up' contributions to a 401(k) or IRA?", "a": "11000"}, {"q": "61. Why is the VIN number a requirement for claiming the 2026 auto interest deduction?", "a": "To provide proof that the vehicle was manufactured within the United States."}, {"q": "62. What does the acronym 'SALT' represent in tax legislation?", "a": "State and Local Taxes."}, {"q": "63. What is the primary function of an 'audit protection plan' offered by CPA firms?", "a": "It serves as insurance to cover the CPA's representation fees in the event of an audit."}, {"q": "64. What is the main benefit for agents who attend weekly marketing and brokerage meetings?", "a": "Networking with peers to promote listings and match them with potential buyers."}, {"q": "65. Why is a separate checking account considered essential for Schedule C filers?", "a": "To maintain a clear audit trail and avoid the red flag of co-mingling personal and business funds."}, {"q": "66. What is 'Desktop Underwriter' (DU) in the mortgage industry?", "a": "An automated system used by lenders to evaluate a borrower's creditworthiness and loan eligibility."}, {"q": "67. The 2026 personal car interest deduction requires the vehicle to be _____ and assembled in the US.", "a": "New"}, {"q": "68. How does the IRS define an 'ordinary' business expense?", "a": "An expense that is common and accepted in the taxpayer's industry or trade."}, {"q": "69. What financial responsibility do self-employed individuals have that W-2 employees do not?", "a": "They must pay both the employer and employee portions of Social Security and Medicare taxes."}, {"q": "70. In which two months does Alameda County typically hold its AC Boost lotteries?", "a": "May and September."}, {"q": "71. Are pass-through entities like S-Corps eligible for the QBI deduction?", "a": "Yes."}, {"q": "72. Under IRS rules, can a home office be located in a multi-purpose room like a dining room?", "a": "No, it must be used exclusively for business to qualify for the deduction."}, {"q": "73. What is the economic goal of providing accelerated depreciation (Bonus Depreciation) to businesses?", "a": "To encourage businesses to make capital investments and stimulate economic growth."}, {"q": "74. What was the signature date for the major 2025 tax law discussed in the 2026 update?", "a": "July 4, 2025."}, {"q": "75. What is the 'equity share' component of the CalHFA 'Dream for All' program?", "a": "A requirement for the borrower to pay CalHFA 20% of the home's appreciation value upon exit."}];
+
+  const els = {
+    search: document.getElementById("search"),
+    prev: document.getElementById("prevBtn"),
+    next: document.getElementById("nextBtn"),
+    flip: document.getElementById("flipBtn"),
+    known: document.getElementById("knownBtn"),
+    shuffle: document.getElementById("shuffleBtn"),
+    reset: document.getElementById("resetBtn"),
+    inner: document.getElementById("inner"),
+    qText: document.getElementById("qText"),
+    aText: document.getElementById("aText"),
+    cardNum: document.getElementById("cardNum"),
+    cardTotal: document.getElementById("cardTotal"),
+    list: document.getElementById("list"),
+    allCount: document.getElementById("allCount"),
+    filteredCount: document.getElementById("filteredCount"),
+    knownCount: document.getElementById("knownCount"),
+    progressBar: document.getElementById("progressBar"),
+    statusText: document.getElementById("statusText"),
+    toast: document.getElementById("toast"),
+    front: document.getElementById("frontFace"),
+    back: document.getElementById("backFace")
+  };
+
+  const STORAGE_KEY = "hb_flashcards_state_v1";
+
+  const state = {
+    order: [],
+    idx: 0,
+    known: {},
+    query: ""
+  };
+
+  function normalize(s) {
+    return (s || "").toString().toLowerCase().trim();
+  }
+
+  function loadState() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return false;
+      const saved = JSON.parse(raw);
+      if (!saved || !Array.isArray(saved.order) || typeof saved.idx !== "number") return false;
+      state.order = saved.order;
+      state.idx = Math.max(0, Math.min(saved.idx, saved.order.length - 1));
+      state.known = saved.known || {};
+      state.query = saved.query || "";
+      return true;
+    } catch(e) {
+      return false;
+    }
+  }
+
+  function saveState() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } catch(e) {}
+  }
+
+  function toast(msg) {
+    els.toast.textContent = msg;
+    els.toast.classList.add("show");
+    clearTimeout(toast._t);
+    toast._t = setTimeout(() => els.toast.classList.remove("show"), 1100);
+  }
+
+  function initOrder() {
+    state.order = ALL_CARDS.map((_, i) => i);
+  }
+
+  function getFilteredOrder() {
+    const q = normalize(state.query);
+    if (!q) return state.order.slice();
+    const out = [];
+    for (const i of state.order) {
+      const c = ALL_CARDS[i];
+      if (normalize(c.q).includes(q) || normalize(c.a).includes(q)) out.push(i);
+    }
+    return out;
+  }
+
+  function currentFiltered() {
+    return getFilteredOrder();
+  }
+
+  function ensureIdxInRange(order) {
+    if (order.length === 0) {
+      state.idx = 0;
+      return;
+    }
+    state.idx = Math.max(0, Math.min(state.idx, order.length - 1));
+  }
+
+  function renderCard() {
+    const order = currentFiltered();
+    ensureIdxInRange(order);
+
+    els.allCount.textContent = String(ALL_CARDS.length);
+    els.filteredCount.textContent = String(order.length);
+    els.cardTotal.textContent = String(order.length || 0);
+
+    if (order.length === 0) {
+      els.qText.textContent = "No matches. Try a different search.";
+      els.aText.textContent = "";
+      els.cardNum.textContent = "0";
+      els.progressBar.style.width = "0%";
+      els.statusText.textContent = "";
+      return;
+    }
+
+    const cardIndex = order[state.idx];
+    const card = ALL_CARDS[cardIndex];
+
+    els.qText.textContent = card.q;
+    els.aText.textContent = card.a;
+
+    els.cardNum.textContent = String(state.idx + 1);
+
+    const knownCount = Object.keys(state.known).filter(k => state.known[k]).length;
+    els.knownCount.textContent = String(knownCount);
+
+    const pct = (order.length <= 1) ? 100 : Math.round((state.idx / (order.length - 1)) * 100);
+    els.progressBar.style.width = pct + "%";
+
+    const isKnown = !!state.known[cardIndex];
+    els.statusText.textContent = isKnown ? "Known" : "New";
+    els.statusText.style.color = isKnown ? "rgba(52,211,153,0.95)" : "rgba(255,215,0,0.92)";
+
+    // reset flip to question side
+    els.inner.classList.remove("flipped");
+
+    highlightList(cardIndex);
+    saveState();
+  }
+
+  function highlightList(cardIndex) {
+    const nodes = els.list.querySelectorAll("[data-card-index]");
+    nodes.forEach(n => {
+      const active = Number(n.getAttribute("data-card-index")) === cardIndex;
+      n.style.outline = active ? "2px solid rgba(255,215,0,0.45)" : "none";
+      n.style.boxShadow = active ? "0 0 0 6px rgba(255,215,0,0.10)" : "none";
+    });
+  }
+
+  function renderList() {
+    const order = currentFiltered();
+    els.list.innerHTML = "";
+
+    if (order.length === 0) {
+      const div = document.createElement("div");
+      div.className = "row";
+      div.style.cursor = "default";
+      div.innerHTML = '<div class="q">No cards match your search.</div><div class="meta"><span class="badge dot new">Tip</span><span>Clear the search box to see all cards.</span></div>';
+      els.list.appendChild(div);
+      return;
+    }
+
+    for (let pos = 0; pos < order.length; pos++) {
+      const idx = order[pos];
+      const c = ALL_CARDS[idx];
+      const row = document.createElement("div");
+      row.className = "row";
+      row.setAttribute("data-card-index", String(idx));
+      row.addEventListener("click", () => {
+        state.idx = pos;
+        renderCard();
+      });
+
+      const isKnown = !!state.known[idx];
+      const badgeClass = isKnown ? "known" : "new";
+      const badgeText = isKnown ? "Known" : "New";
+
+      row.innerHTML = `
+        <div class="q">${escapeHtml(c.q)}</div>
+        <div class="meta">
+          <span class="badge dot ${badgeClass}">${badgeText}</span>
+          <span>Card ${pos + 1}</span>
+        </div>
+      `;
+      els.list.appendChild(row);
+    }
+  }
+
+  function escapeHtml(str) {
+    return (str || "").toString()
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
+
+  function flip() {
+    els.inner.classList.toggle("flipped");
+  }
+
+  function prev() {
+    const order = currentFiltered();
+    if (order.length === 0) return;
+    state.idx = (state.idx - 1 + order.length) % order.length;
+    renderCard();
+  }
+
+  function next() {
+    const order = currentFiltered();
+    if (order.length === 0) return;
+    state.idx = (state.idx + 1) % order.length;
+    renderCard();
+  }
+
+  function markKnown() {
+    const order = currentFiltered();
+    if (order.length === 0) return;
+    const cardIndex = order[state.idx];
+    const now = !state.known[cardIndex];
+    state.known[cardIndex] = now;
+    toast(now ? "Marked known" : "Marked new");
+    renderList();
+    renderCard();
+  }
+
+  function shuffle() {
+    // Fisher Yates shuffle on the base order
+    for (let i = state.order.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [state.order[i], state.order[j]] = [state.order[j], state.order[i]];
+    }
+    state.idx = 0;
+    toast("Shuffled");
+    renderList();
+    renderCard();
+  }
+
+  function resetAll() {
+    initOrder();
+    state.idx = 0;
+    state.query = "";
+    state.known = {};
+    els.search.value = "";
+    toast("Reset");
+    renderList();
+    renderCard();
+  }
+
+  function wire() {
+    els.flip.addEventListener("click", flip);
+    els.prev.addEventListener("click", prev);
+    els.next.addEventListener("click", next);
+    els.known.addEventListener("click", markKnown);
+    els.shuffle.addEventListener("click", shuffle);
+    els.reset.addEventListener("click", resetAll);
+
+    els.search.addEventListener("input", (e) => {
+      state.query = e.target.value || "";
+      state.idx = 0;
+      renderList();
+      renderCard();
+    });
+
+    const tapFlip = (e) => {
+      // avoid selecting text on double click
+      e.preventDefault();
+      flip();
+    };
+    els.front.addEventListener("click", tapFlip);
+    els.back.addEventListener("click", tapFlip);
+    els.front.addEventListener("keydown", (e) => { if (e.key === "Enter") flip(); });
+    els.back.addEventListener("keydown", (e) => { if (e.key === "Enter") flip(); });
+
+    document.addEventListener("keydown", (e) => {
+      const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : "";
+      const typing = tag === "input" || tag === "textarea";
+      if (typing) {
+        if (e.key === "Escape") {
+          e.target.blur();
+        }
+        return;
+      }
+
+      if (e.key === " " || e.code === "Space") {
+        e.preventDefault();
+        flip();
+      } else if (e.key === "ArrowLeft") {
+        prev();
+      } else if (e.key === "ArrowRight") {
+        next();
+      } else if (e.key.toLowerCase() === "k") {
+        markKnown();
+      } else if (e.key.toLowerCase() === "s") {
+        shuffle();
+      } else if (e.key.toLowerCase() === "f") {
+        els.search.focus();
+      }
+    });
+  }
+
+  (function start() {
+    const had = loadState();
+    if (!had || state.order.length !== ALL_CARDS.length) {
+      initOrder();
+      state.idx = 0;
+      state.known = {};
+      state.query = "";
+    }
+    els.search.value = state.query || "";
+    renderList();
+    renderCard();
+    wire();
+  })();
+</script>
+
+  <footer class="hbFooter" aria-label="Office information">
+    <div class="hbFooterInner">
+      <a class="hbFooterLogo" href="https://teamrealtyexperts.com/" target="_blank" rel="noopener" aria-label="Realty Experts internal homepage">
+        <img src="https://harvinder.dscloud.me/blog/wp-content/uploads/2024/02/cropped-2022_Logo_WhiteBox-Realtor-1.jpg" alt="Realty Experts logo" loading="lazy"/>
+      </a>
+      <div class="hbFooterInfo">
+        <div class="hbFooterTitle">Internal use only</div>
+        <div class="hbFooterSub">For Realty Experts agents only</div>
+        <div class="hbFooterLines">
+          <div class="hbFooterLine">Phone 510 226 2444</div>
+                    <div class="hbFooterLine">41051 Mission Blvd, Fremont, California 94539</div>
+          <div class="hbFooterLine">License # CA DRE 00414413</div>
+        </div>
+        <div class="hbFooterLinkWrap">
+          <a class="hbFooterLink" href="https://teamrealtyexperts.com/" target="_blank" rel="noopener">teamrealtyexperts.com</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

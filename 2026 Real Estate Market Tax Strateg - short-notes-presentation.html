@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 Real Estate Market & Tax Strategy | REALTY EXPERTS</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #1a1a1a;
+      overflow: hidden;
+    }
+
+    .presentation-container {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .slide {
+      width: 1280px;
+      height: 720px;
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      display: none;
+      flex-direction: column;
+      padding: 60px 80px;
+      position: relative;
+      animation: slideIn 0.5s ease;
+    }
+
+    .slide.active {
+      display: flex;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Title Slide */
+    .slide.title-slide {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
+      color: white;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .slide.title-slide h1 {
+      font-size: 56px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .slide.title-slide .subtitle {
+      font-size: 28px;
+      margin-bottom: 40px;
+      opacity: 0.95;
+    }
+
+    .slide.title-slide .presenter {
+      font-size: 20px;
+      margin-top: 40px;
+      opacity: 0.9;
+    }
+
+    /* Content Slides */
+    .slide h2 {
+      font-size: 42px;
+      color: #1e3a8a;
+      margin-bottom: 40px;
+      border-bottom: 4px solid #2563eb;
+      padding-bottom: 15px;
+    }
+
+    .slide h3 {
+      font-size: 28px;
+      color: #2563eb;
+      margin-bottom: 20px;
+      margin-top: 30px;
+    }
+
+    .slide ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .slide li {
+      font-size: 20px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      padding-left: 40px;
+      position: relative;
+      color: #1e293b;
+    }
+
+    .slide li:before {
+      content: "▶";
+      position: absolute;
+      left: 0;
+      color: #2563eb;
+      font-size: 16px;
+    }
+
+    .slide .highlight-box {
+      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+      border-left: 5px solid #2563eb;
+      padding: 25px 30px;
+      margin: 25px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .slide .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 20px;
+    }
+
+    .slide .emoji {
+      font-size: 32px;
+      margin-right: 10px;
+    }
+
+    /* Logo */
+    .logo {
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      height: 60px;
+      opacity: 0.9;
+    }
+
+    /* Navigation */
+    .nav-buttons {
+      position: fixed;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 20px;
+      z-index: 1000;
+    }
+
+    .nav-btn {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+
+    .nav-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+    }
+
+    .nav-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .slide-counter {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      background: rgba(30, 58, 138, 0.9);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      z-index: 1000;
+    }
+
+    /* Print styles for PDF */
+    @media print {
+      body {
+        background: white;
+      }
+
+      .presentation-container {
+        width: 100%;
+        height: auto;
+      }
+
+      .slide {
+        width: 100%;
+        height: 100vh;
+        page-break-after: always;
+        display: flex !important;
+        box-shadow: none;
+        border-radius: 0;
+      }
+
+      .nav-buttons, .slide-counter {
+        display: none;
+      }
+    }
+
+    @page {
+      size: landscape;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="slide-counter">
+    <span id="current-slide">1</span> / <span id="total-slides">15</span>
+  </div>
+
+  <div class="presentation-container">
+    <!-- Slide 1: Title -->
+    <div class="slide title-slide active">
+      <h1>2026 Real Estate Market<br>& Tax Strategy</h1>
+      <div class="subtitle">Tax Law Changes, Market Trends & Strategic Planning</div>
+      <div class="presenter">
+        Presented by: Bill Harrison & Claudia Muller<br>
+        January 13, 2026
+      </div>
+      <img src="https://teamrealtyexperts.com/assets/realty-experts-logo-BtToCn9J.jpg" alt="REALTY EXPERTS" class="logo">
+    </div>
+
+    <!-- Slide 2: Market Landscape Overview -->
+    <div class="slide">
+      <h2>2026 Market Landscape</h2>
+      <div class="highlight-box">
+        <h3>Key Market Drivers</h3>
+        <ul>
+          <li>Significant shifts in federal tax policy</li>
+          <li>Gradual decline in mortgage rates</li>
+          <li>Fundamental changes to industry association support structures</li>
+        </ul>
+      </div>
+      <ul>
+        <li>Most substantial tax code changes since 2017</li>
+        <li>Landmark tax bill signed July 4, 2025</li>
+        <li>Enhanced focus on compliance and record-keeping</li>
+      </ul>
+      <img src="https://teamrealtyexperts.com/assets/realty-experts-logo-BtToCn9J.jpg" alt="REALTY EXPERTS" class="logo">
+    </div>
+
+    <!-- Slide 3: SALT Deduction Breakthrough -->
+    <div class="slide">
+      <h2>🏛️ Historic SALT Cap Increase</h2>
+      <div class="highlight-box">
+        <h3>SALT Deduction Cap Quadrupled</h3>
+        <p style="font-size: 48px; font-weight: 700; color: #2563eb; text-align: center; margin: 30px 0;">
+          $10,000 → $40,000
+        </p>
+        <p style="font-size: 20px; text-align: center; color: #1e293b;">
+          Game-changer for high-tax regions like California
+        </p>
+      </div>
+      <ul>
+        <li>Incentivizes itemization among homeowners</li>
+        <li>Particularly beneficial in high-tax states</li>
+        <li>Expected to boost real estate market activity</li>
+      </ul>
+      <img src="https://teamrealtyexperts.com/assets/realty-experts-logo-BtToCn9J.jpg" alt="REALTY EXPERTS" class="logo">
+    </div>
+
+    <!-- Slide 4: Tax Law Overhaul Details -->
+    <div class="slide">
+      <h2>Tax Law Overhaul (July 4, 2025)</h2>
+      <div class="two-column">
+        <div>
+          <h3>Standard Deductions Increased</h3>
+          <ul>
+            <li>Joint Filing: <strong>$31,515</strong></li>
+            <li>Single Filing: <strong>$15,750</strong></li>
+          </ul>
+          <h3 style="margin-top: 40px;">QBI Made Permanent</h3>
+          <ul>
+            <li>Qualified Business Income deduction secured</li>
+            <li>Long-term tax planning certainty</li>
+          </ul>
+        </div>
+        <div>
+          <h3>New Car Interest Deduction</h3>
+          <ul>
+            <li><strong>$10,000</strong> deduction limit</li>
+            <li>US-assembled vehicles only</li>
+            <li>Supports domestic auto industry</li>
+          </ul>
+        </div>
+      </div>
+      <img src="https://teamrealtyexperts.com/assets/realty-experts-logo-BtToCn9J.jpg" alt="REALTY EXPERTS" class="logo">
+    </div>
+
+    <!-- Slide 5: Business Incentives -->
+    <div class="slide">
+      <h2>💰 Business Incentives Restored</h2>
+      <div class="highlight-box">
+        <h3><span class="emoji">🎯</span>Bonus Depreciation Reinstated</h3>
+        <p style="font-size: 24px; color: #1e293b; margin-top: 15px;">
+          <strong>100% first-year write-off</strong> for equipment and technology purchases after January 19
+        </p>
+      </div>
+      <ul>
+        <li>Section 179 expensing allows immediate deduction of business assets</li>
+        <li>Real estate professionals: Document <strong>750+ hours annually</strong></li>
+        <li>Offset active income with rental losses</li>
+        <li>Strategic timing of equipment purchases now critical</li>
+      </ul>
+      <img src="https://teamrealtyexperts.com/assets/realty-experts-logo-BtToCn9J.jpg" alt="REALTY EXPERTS" class="logo">
+    </div>
+
+    <!-- Slide 6: IRS Reporting Changes -->
+    <div class="slide">
+      <h2>📊 IRS Reporting Changes</h2>
+      <div class="two-column">
+        <div>
+          <h3>1099-K Threshold</h3>
+          <div class="highlight-box">
+            <p style="font-size: 32px; font-weight: 700; color: #dc2626; text-align: center;">
+              Dropping to $600
+            </p>
+            <p style="font-size: 16px; text-align: center; margin-top: 10px;">
+              Venmo, PayPal, third-party platforms
+            </p>
+          </div>
+        </div>
+        <div>
+          <h3>1099-MISC/NEC Threshold</h3>
+          <div class="highlight-box">
+            <p style="font-size: 32px; font-weight: 700; color: #16a34a; text-align: center;">
+              Increasing to $2,000
+            </p>
+            <p style="font-size: 16px; text-align: center; margin-top: 10px;">
+              Relief for small transactions
+            </p>
+          </div>
+        </div>
+      </div>
+      <ul style="margin-top: 30px;">
+        <li>Cryptocurrency tracking significantly enhanced</li>
+        <li>Stricter reporting for all crypto-related investments</li>
+      </ul>
+      <img src="https://teamrealtyexperts.com/assets/realty-experts-logo-BtToCn9J.jpg" alt="REALTY EXPERTS" class="logo">
+    </div>
+
+    <!-- Slide 7: Audit Red Flags -->
+    <div class="slide">
+      <h2>🔍 Audit Red Flags & Best Practices</h2>
+      <ul>
+        <li><strong>Separate accounts:</strong> Maintain distinct business/personal accounts to avoid co-mingling</li>
+        <li><strong>Mileage documentation:</strong> Contemporary logs required ($0.70/mile for 2025)</li>
+        <li><strong>Odometer verification:</strong> Obtain oil changes in December/January</li>
+        <li><strong>Expense justification:</strong> Ensure expenses are 'ordinary and necessary'</li>
+        <li><strong>Avoid red flags:</strong> No excessive luxury claims</li>
+      </ul>
+      <div class="highlight-box" style="margin-top: 30px;">
+        <p style="font-size: 20px; text-align: center; color: #dc2626;">
+          <strong>⚠️ IRS increasing scrutiny on deductions and cryptocurrency</strong>
+        </p>
+      </div>
+      <img src="https://teamrealtyexperts.com/assets/realty-experts-logo-BtToCn9J.jpg" alt="REALTY EXPERTS" class="logo">
+    </div>
+
+    <!-- Slide 8: RAD Form -->
+    <div class="slide">
+      <h2>📋 New RAD Form Requirement</h2>
+      <div class="highlight-box">
+        <h3>Referral Addendum Disclosure Form</h3>
+        <p style="font-size: 22px; color: #1e293b; margin-top: 15px;">
+          California Association of Realtors mandate for complete transparency in referral compensation
+        </p>
+      </div>
+      <ul>
+        <li>Must disclose <strong>every detail</strong> of compensation received for referrals</li>
+        <li>Eliminates 'secret' payments and undisclosed arrangements</li>
+        <li>Full transparency required for all referral relationships</li>
+        <li>Compliance mandatory for all California real estate professionals</li>
+      </ul>
+      <img src="https://teamrealtyexperts.com/assets/realty-experts-logo-BtToCn9J.jpg" alt="REALTY EXPERTS" class="logo">
+    </div>
+
+    <!-- Slide 9: Bay East Changes -->
+    <div class="slide">
+      <h2 style="margin-bottom: 25px;">🏢 Bay East Association Changes</h2>
+      <div class="highlight-box" style="margin: 15px 0; padding: 20px 25px;">
+        <p style="font-size: 22px; font-weight: 700; color: #dc2626; text-align: center;">
+          Effective January 30, 2026
+        </p>
+        <p style="font-size: 18px; color: #1e293b; text-align: center; margin-top: 8px;">
+          Bay East ends financial/staff support for local marketing groups
+        </p>
+      </div>
+      <h3 style="margin-bottom: 12px; margin-top: 20px; font-size: 24px;">Affected Groups</h3>
+      <ul>
+        <li style="margin-bottom: 10px; font-size: 18px;">Tri-City Marketing Group</li>
+        <li style="margin-bottom: 10px; font-size: 18px;">Castro Valley Marketing Group</li>
+        <li style="margin-bottom: 10px; font-size: 18px;">Pleasanton Marketing Group</li>
+      </ul>
+      <h3 style="margin-bottom: 12px; margin-top: 20px; font-size: 24px;">Path Forward</h3>
+      <ul>
+        <li style="margin-bottom: 10px; font-size: 18px;">Groups must become self-sustaining through sponsorships</li>
+        <li style="margin-bottom: 10px; font-size: 18px;">Option to merge or disband</li>
+        <li style="margin-bottom: 10px; font-size: 18px;">Some brokerages offering free venues to maintain networking</li>
+      </ul>
+      <img src="https://teamrealtyexperts.com/assets/realty-experts-logo-BtToCn9J.jpg" alt="REALTY EXPERTS" class="logo">
+    </div>
+
+    <!-- Slide 10: Strategic Tax Planning -->
+    <div class="slide">
+      <h2 style="margin-bottom: 25px;">💡 Strategic Tax Planning Paths</h2>
+      <div class="two-column">
+        <div class="highlight-box" style="padding: 20px 25px;">
+          <h3 style="font-size: 24px; margin-bottom: 15px;">Path 1: Tax Minimization</h3>
+          <ul style="font-size: 17px;">
+            <li style="margin-bottom: 8px;">Maximize business expenses</li>
+            <li style="margin-bottom: 8px;">Lower net income</li>
+            <li style="margin-bottom: 8px;">Reduce tax burden</li>
+            <li style="margin-bottom: 8px;">Optimize deductions</li>
+          </ul>
+        </div>
+        <div class="highlight-box" style="padding: 20px 25px;">
+          <h3 style="font-size: 24px; margin-bottom: 15px;">Path 2: Income Justification</h3>
+          <ul style="font-size: 17px;">
+            <li style="margin-bottom: 8px;">Show higher net income</li>
+            <li style="margin-bottom: 8px;">Qualify for larger loans</li>
+            <li style="margin-bottom: 8px;">Contribute to retirement</li>
+            <li style="margin-bottom: 8px;">Build long-term wealth</li>
+          </ul>
+        </div>
+      </div>
+      <h3 style="margin-top: 20px; margin-bottom: 12px; font-size: 24px;">Retirement Contribution Limits</h3>
+      <ul>
+        <li style="margin-bottom: 10px; font-size: 18px;">Up to <strong>$70,000</strong> (or 25% of income) to self-employment retirement accounts</li>
+        <li style="margin-bottom: 10px; font-size: 18px;"><strong>Ages 60-63:</strong> "Super Catch-Up" provision with additional <strong>$11,000</strong></li>
+      </ul>
+      <img src="https://teamrealtyexperts.com/assets/realty-experts-logo-BtToCn9J.jpg" alt="REALTY EXPERTS" class="logo">
+    </div>
+
+    <!-- Slide 11: Interest Rates -->
+    <div class="slide">
+      <h2>📉 Interest Rate Environment</h2>
+      <div class="highlight-box">
+        <h3>Jumbo Loan Rates Declining</h3>
+        <p style="font-size: 48px; font-weight: 700; color: #16a34a; text-align: center; margin: 20px 0;">
+          6.0% → 5.875%
+        </p>
+        <p style="font-size: 20px; text-align: center; color: #1e293b;">
+          Zero-point loans stimulating buyer demand
+        </p>
+      </div>
+      <h3>Market Response</h3>
+      <ul>
+        <li>Properties in <strong>$1.1M - $1.2M range</strong> attracting 50+ buyers at open houses</li>
+        <li><strong>Bond market</strong> (not Federal Reserve) remains primary driver of rate movements</li>
+        <li>Increased buyer activity expected to continue through 2026</li>
+      </ul>
+      <img src="https://teamrealtyexperts.com/assets/realty-experts-logo-BtToCn9J.jpg" alt="REALTY EXPERTS" class="logo">
+    </div>
+
+    <!-- Slide 12: Down Payment Assistance -->
+    <div class="slide">
+      <h2 style="margin-bottom: 25px;">🏡 Down Payment Assistance Programs</h2>
+      <h3 style="margin-bottom: 12px; margin-top: 15px; font-size: 24px;">Zero-Down Options</h3>
+      <ul>
+        <li style="margin-bottom: 10px; font-size: 18px;">Second mortgage for 3% down at ~6.75% rate</li>
+        <li style="margin-bottom: 10px; font-size: 18px;">600+ credit score required</li>
+      </ul>
+      <h3 style="margin-bottom: 12px; margin-top: 15px; font-size: 24px;">CalHFA "Dream for All"</h3>
+      <ul>
+        <li style="margin-bottom: 10px; font-size: 18px;"><strong>20% down payment</strong> via equity-share arrangement</li>
+        <li style="margin-bottom: 10px; font-size: 18px;">State receives 20% of appreciation</li>
+        <li style="margin-bottom: 10px; font-size: 18px;">Limited to first-generation homebuyers</li>
+        <li style="margin-bottom: 10px; font-size: 18px;"><strong>Lottery selection: April 2026</strong></li>
+      </ul>
+      <h3 style="margin-bottom: 12px; margin-top: 15px; font-size: 24px;">Alameda County Program</h3>
+      <ul>
+        <li style="margin-bottom: 10px; font-size: 18px;">Annual lotteries: <strong>May & September</strong></li>
+        <li style="margin-bottom: 10px; font-size: 18px;">Additional local assistance opportunities</li>
+      </ul>
+      <img src="https://teamrealtyexperts.com/assets/realty-experts-logo-BtToCn9J.jpg" alt="REALTY EXPERTS" class="logo">
+    </div>
+
+    <!-- Slide 13: Action Items -->
+    <div class="slide">
+      <h2>✅ Immediate Action Items</h2>
+      <ul>
+        <li><strong>Tax Planning:</strong> Meet with CPA to optimize SALT deductions and QBI strategy</li>
+        <li><strong>Record Keeping:</strong> Implement mileage tracking system immediately</li>
+        <li><strong>Account Separation:</strong> Open dedicated business banking account if needed</li>
+        <li><strong>RAD Form:</strong> Review referral agreements for compliance</li>
+        <li><strong>Equipment Purchases:</strong> Plan Q1 2026 purchases for bonus depreciation</li>
+        <li><strong>Client Education:</strong> Inform buyers about down payment assistance programs</li>
+        <li><strong>Retirement Planning:</strong> Maximize 2026 contributions (especially ages 60-63)</li>
+      </ul>
+      <img src="https://teamrealtyexperts.com/assets/realty-experts-logo-BtToCn9J.jpg" alt="REALTY EXPERTS" class="logo">
+    </div>
+
+    <!-- Slide 14: Thank You -->
+    <div class="slide title-slide">
+      <h1>Thank You!</h1>
+      <div class="subtitle">Questions?</div>
+      <div class="presenter" style="margin-top: 60px;">
+        <strong>REALTY EXPERTS</strong><br>
+        "Our Experience is the Difference"
+      </div>
+      <img src="https://teamrealtyexperts.com/assets/realty-experts-logo-BtToCn9J.jpg" alt="REALTY EXPERTS" class="logo">
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="nav-buttons">
+    <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+    <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    document.getElementById('total-slides').textContent = totalSlides;
+
+    function showSlide(n) {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (n + totalSlides) % totalSlides;
+      slides[currentSlide].classList.add('active');
+
+      document.getElementById('current-slide').textContent = currentSlide + 1;
+
+      // Update button states
+      document.getElementById('prevBtn').disabled = currentSlide === 0;
+      document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+    }
+
+    function changeSlide(direction) {
+      showSlide(currentSlide + direction);
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') changeSlide(-1);
+      if (e.key === 'ArrowRight') changeSlide(1);
+      if (e.key === 'Home') showSlide(0);
+      if (e.key === 'End') showSlide(totalSlides - 1);
+    });
+
+    // Initialize
+    showSlide(0);
+  </script>
+</body>
+</html>
