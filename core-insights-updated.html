@@ -67,22 +67,11 @@
       background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
       border-radius: 12px;
       padding: 24px 28px;
-      margin-bottom: 24px;
+      margin-bottom: 40px;
       border: 1px solid #e2e8f0;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 16px;
-    }
-    .feature-image-container {
-      margin-bottom: 40px;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-    }
-    .feature-image {
-      width: 100%;
-      height: auto;
-      display: block;
     }
     .meeting-info p {
       margin: 0;
@@ -142,73 +131,6 @@
       transform: translateX(4px);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
-    .video-embed-container {
-      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-      border-left: 4px solid;
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 12px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    }
-    .video-embed-title {
-      font-size: 16px;
-      font-weight: 600;
-      color: #1e293b;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .video-wrapper {
-      position: relative;
-      padding-bottom: 56.25%; /* 16:9 aspect ratio */
-      height: 0;
-      overflow: hidden;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      margin-bottom: 12px;
-    }
-    .video-wrapper iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-    .video-fullscreen-link {
-      text-align: center;
-      font-size: 13px;
-      color: #64748b;
-      margin-top: 8px;
-    }
-    .video-fullscreen-link a {
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.2s ease;
-    }
-    .video-fullscreen-link a:hover {
-      color: #1e40af;
-      text-decoration: underline;
-    }
-    .video-fullscreen-link .icon {
-      display: inline-block;
-      margin-left: 4px;
-      font-size: 14px;
-    }
-    .audio-wrapper {
-      background: #f8fafc;
-      border-radius: 8px;
-      padding: 15px;
-      margin-bottom: 12px;
-    }
-    .audio-wrapper iframe {
-      width: 100%;
-      height: 180px;
-      border: none;
-      border-radius: 8px;
-    }
     .footer {
       background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
       padding: 32px 40px;
@@ -259,14 +181,8 @@
 
     <div class="content">
       <div class="meeting-info">
-        <p><strong>Date</strong><span>1/13/26</span></p>
-        <p><strong>Guest Speaker</strong><span>Bill Harrison, Claudia Muller</span></p>
-      </div>
-
-      <div class="feature-image-container">
-        <a href="https://harvinder.dscloud.me/blog/wp-content/uploads/2026/02/2026_real_estate_market_update_tax_law_and_lending_trends.jpg" target="_blank" style="display:block;">
-          <img src="https://harvinder.dscloud.me/blog/wp-content/uploads/2026/02/2026_real_estate_market_update_tax_law_and_lending_trends.jpg" alt="2026 Real Estate Market Update" class="feature-image">
-        </a>
+        <p><strong>Date</strong><span>February 3, 2026</span></p>
+        <p><strong>Guest Speaker</strong><span>John Doe, Jane Smith, Bob Johnson, Sarah Williams</span></p>
       </div>
 
             <div class="section">
@@ -307,41 +223,11 @@
           <span style="color: #ea580c;">Media & Reference Library</span>
         </h2>
         <ul>
-        <li style="border-left-color: #ea580c;">📹 Session Recording: <a href="https://youtu.be/k8gwGpfEohA?si=XdE-7W4854Ta9UHz" style="color: #2563eb; text-decoration: underline;" target="_blank">https://youtu.be/k8gwGpfEohA?si=XdE-7W4854Ta9UHz</a></li>
-        <li style="border-left-color: #ea580c;">📊 Presentation Slides: <a href="https://example.com/slides" style="color: #2563eb; text-decoration: underline;" target="_blank">https://example.com/slides</a></li>
-        <li style="border-left-color: #ea580c;">📸 Property Photos: <a href="https://example.com/photos" style="color: #2563eb; text-decoration: underline;" target="_blank">https://example.com/photos</a></li>
-        <li style="border-left-color: #ea580c;">📝 Meeting Notes Document: <a href="https://example.com/notes" style="color: #2563eb; text-decoration: underline;" target="_blank">https://example.com/notes</a></li>
-        <div class="video-embed-container" style="border-left-color: #ea580c;">
-          <div class="video-embed-title">
-            <span style="font-size: 20px;">🎬</span>
-            <span>Short Video</span>
-          </div>
-          <div class="sp-embed-player" data-id="cOnfbQn3J4A" data-aspect-ratio="1.777778" data-padding-top="56.250000%" style="position:relative;width:100%;padding-top:56.250000%;height:0;">
-            <script src="https://go.screenpal.com/consumption/player_appearance/cOnfbQn3J4A/1.777778"></script>
-            <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" scrolling="no" src="https://go.screenpal.com/player/cOnfbQn3J4A?ff=1&ahc=1&dcc=1&bg=transparent&share=1&download=1&embed=1&cl=1" allowfullscreen="true"></iframe>
-          </div>
-          <div class="video-fullscreen-link">
-            <a href="https://go.screenpal.com/watch/cOnfbQn3J4A" target="_blank">🎯 Open in full screen for the best viewing experience <span class="icon">↗</span></a>
-          </div>
-        </div>
-        <div class="video-embed-container" style="border-left-color: #ea580c;">
-          <div class="video-embed-title">
-            <span style="font-size: 20px;">🎙️</span>
-            <span>Meeting Podcast - Full Audio Recording</span>
-          </div>
-          <div style="text-align: center; padding: 30px 20px; background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border-radius: 8px; margin-bottom: 12px;">
-            <div style="font-size: 48px; margin-bottom: 16px;">🎧</div>
-            <p style="margin: 0 0 20px 0; color: #334155; font-size: 15px; line-height: 1.6;">
-              An AI-generated conversational podcast featuring two AI hosts discussing the key takeaways from this meeting. Listen to an engaging dialogue covering tax strategies, market updates, and industry insights in an easy-to-digest audio format.
-            </p>
-            <a href="https://1drv.ms/u/c/7f2b39559a0f2ce9/IQCmj8pP1CW4Q6y77g2bXsjwARBabzUPWcRvdwqpyW1hBbU?e=6wxaoN" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); color: white; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 15px; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3); transition: all 0.2s ease;">
-              ▶️ Play Podcast in OneDrive
-            </a>
-          </div>
-          <div class="video-fullscreen-link" style="text-align: center; font-size: 13px; color: #64748b;">
-            Opens in OneDrive player - supports streaming and download
-          </div>
-        </div>
+        <li style="border-left-color: #ea580c;">📹 Session Recording: https://example.com/recording</li>
+        <li style="border-left-color: #ea580c;">📊 Presentation Slides: https://example.com/slides</li>
+        <li style="border-left-color: #ea580c;">📸 Property Photos: https://example.com/photos</li>
+        <li style="border-left-color: #ea580c;">📝 Meeting Notes Document: https://example.com/notes</li>
+        <li style="border-left-color: #ea580c;">🎥 Virtual Tour Videos: https://example.com/tours</li>
         </ul>
       </div>
 
@@ -351,14 +237,18 @@
           <span style="color: #9333ea;">Digital Toolkit</span>
         </h2>
         <ul>
-        <li style="border-left-color: #9333ea;">📚 <a href="https://user8888-level3.github.io/2026TaxLaw-RE/" style="color: #2563eb; text-decoration: underline;" target="_blank">Complete Study Resources Portal</a> - Flashcards, presentations, and PDF downloads</li>
+        <li style="border-left-color: #9333ea;">🔗 CRM System Comparison Guide</li>
+        <li style="border-left-color: #9333ea;">📱 Social Media Content Templates</li>
+        <li style="border-left-color: #9333ea;">📊 Market Analysis Dashboard</li>
+        <li style="border-left-color: #9333ea;">📧 Email Campaign Templates</li>
+        <li style="border-left-color: #9333ea;">🏠 Property Listing Checklist</li>
         </ul>
       </div>
     </div>
 
     <div class="footer">
       <p class="brand">REALTY EXPERTS</p>
-      <p>Executive Meeting Notes · February 4, 2026</p>
+      <p>Executive Meeting Notes · February 3, 2026</p>
     </div>
   </div>
 </body>
