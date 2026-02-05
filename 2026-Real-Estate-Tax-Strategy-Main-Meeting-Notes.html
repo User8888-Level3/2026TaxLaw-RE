@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Executive Recap &amp; Resources - Executive Recap</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.7;
+      color: #1e293b;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+    }
+    .email-container {
+      background-color: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12), 0 4px 16px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+    .header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
+      padding: 50px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .logo {
+      max-width: 280px;
+      height: auto;
+      display: block;
+      margin: 0 auto 30px;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));
+      position: relative;
+      z-index: 1;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: white;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 1;
+    }
+    .content {
+      padding: 50px 40px;
+    }
+    .meeting-info {
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border: 1px solid #e2e8f0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .feature-image-container {
+      margin-bottom: 40px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    }
+    .feature-image {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .meeting-info p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #475569;
+    }
+    .meeting-info strong {
+      color: #1e3a8a;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .meeting-info span {
+      color: #1e293b;
+      font-size: 15px;
+      font-weight: 500;
+    }
+    .section {
+      margin-bottom: 45px;
+    }
+    .section-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid;
+      color: #1e293b;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title .emoji {
+      font-size: 28px;
+    }
+    .section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .section li {
+      padding: 18px 22px;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+      border-left: 4px solid;
+      border-radius: 10px;
+      font-size: 15px;
+      color: #334155;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      transition: all 0.2s ease;
+      line-height: 1.7;
+    }
+    .section li:hover {
+      transform: translateX(4px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    .video-embed-container {
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+      border-left: 4px solid;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+    .video-embed-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-bottom: 12px;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .video-fullscreen-link {
+      text-align: center;
+      font-size: 13px;
+      color: #64748b;
+      margin-top: 8px;
+    }
+    .video-fullscreen-link a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    .video-fullscreen-link a:hover {
+      color: #1e40af;
+      text-decoration: underline;
+    }
+    .video-fullscreen-link .icon {
+      display: inline-block;
+      margin-left: 4px;
+      font-size: 14px;
+    }
+    .footer {
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      padding: 32px 40px;
+      text-align: center;
+      color: #64748b;
+      font-size: 13px;
+      border-top: 1px solid #e2e8f0;
+    }
+    .footer p {
+      margin: 6px 0;
+    }
+    .footer .brand {
+      font-weight: 600;
+      color: #2563eb;
+    }
+    @media (max-width: 600px) {
+      body {
+        padding: 20px 10px;
+      }
+      .header {
+        padding: 40px 24px;
+      }
+      .content {
+        padding: 30px 24px;
+      }
+      .header h1 {
+        font-size: 26px;
+      }
+      .logo {
+        max-width: 200px;
+      }
+      .section-title {
+        font-size: 20px;
+      }
+      .meeting-info {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <div class="header">
+      <img src="https://harvinder.dscloud.me/blog/wp-content/uploads/2024/02/cropped-2022_Logo_WhiteBox-Realtor-1.jpg" alt="REALTY EXPERTS Logo" class="logo">
+      <h1>Executive Recap &amp; Resources</h1>
+    </div>
+
+    <div class="content">
+      <div class="meeting-info">
+        <p><strong>Date</strong><span>1/13/26</span></p>
+        <p><strong>Guest Speaker</strong><span>Bill Harrison, Claudia Muller</span></p>
+      </div>
+
+      <div class="feature-image-container">
+        <a href="https://harvinder.dscloud.me/blog/wp-content/uploads/2026/02/2026_real_estate_market_update_tax_law_and_lending_trends.jpg" target="_blank" style="display:block;">
+          <img src="https://harvinder.dscloud.me/blog/wp-content/uploads/2026/02/2026_real_estate_market_update_tax_law_and_lending_trends.jpg" alt="2026 Real Estate Market Update" class="feature-image">
+        </a>
+      </div>
+
+            <div class="section">
+        <h2 class="section-title" style="border-bottom-color: #2563eb;">
+          <span class="emoji">📊</span>
+          <span style="color: #2563eb;">Executive Overview</span>
+        </h2>
+        <ul>
+        <li style="border-left-color: #2563eb;">The real estate landscape for 2026 is characterized by significant shifts in federal tax policy, a gradual decline in mortgage rates, and fundamental changes to industry association support structures.</li>
+        <li style="border-left-color: #2563eb;">A landmark tax bill, signed July 4, 2025, represents the most substantial change to the tax code since 2017, notably quadrupling the State and Local Tax (SALT) deduction cap to $40,000. This change is expected to incentivize itemization among homeowners, particularly in high-tax regions like California.</li>
+        <li style="border-left-color: #2563eb;">Concurrently, mortgage rates are trending downward, with jumbo loans reaching approximately 5.875% in early 2026, stimulating buyer demand.</li>
+        <li style="border-left-color: #2563eb;">The industry faces regulatory tightening regarding referral disclosures (via the new RAD form) and a transition in marketing group operations as regional associations like Bay East withdraw financial and administrative support.</li>
+        <li style="border-left-color: #2563eb;">Professionals are advised to prioritize meticulous record-keeping for mileage and home offices, as the IRS increases its focus on 1099-K reporting and cryptocurrency.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title" style="border-bottom-color: #16a34a;">
+          <span class="emoji">💡</span>
+          <span style="color: #16a34a;">Core Insights & Teachings</span>
+        </h2>
+        <ul>
+        <li style="border-left-color: #16a34a;">🏛️ Tax Law Overhaul (July 4, 2025): SALT deduction cap quadrupled from $10,000 to $40,000, standard deductions increased (Joint: $31,515, Single: $15,750), Qualified Business Income (QBI) made permanent, and new $10,000 car interest deduction for US-assembled vehicles.</li>
+        <li style="border-left-color: #16a34a;">💰 Business Incentives Restored: Bonus depreciation reinstated for purchases after January 19 (100% first-year write-off for equipment/technology). Section 179 expensing allows immediate deduction of business assets. Real estate professionals must document 750+ hours annually to offset active income with rental losses.</li>
+        <li style="border-left-color: #16a34a;">📊 IRS Reporting Changes: 1099-K threshold dropping to $600 for third-party platforms (Venmo, PayPal). 1099-MISC/NEC threshold increasing from $600 to $2,000. Cryptocurrency tracking significantly enhanced with stricter reporting requirements for all crypto-related investments.</li>
+        <li style="border-left-color: #16a34a;">🔍 Audit Red Flags &amp; Best Practices: Maintain separate business/personal accounts to avoid co-mingling. Document mileage with contemporary logs ($0.70/mile for 2025). Obtain oil changes in December/January for odometer verification. Ensure expenses are &#039;ordinary and necessary&#039; - avoid excessive luxury claims.</li>
+        <li style="border-left-color: #16a34a;">📋 New RAD Form Requirement: California Association of Realtors mandates Referral Addendum Disclosure form for complete transparency in referral compensation. Must disclose every detail of compensation received for referrals to eliminate &#039;secret&#039; payments.</li>
+        <li style="border-left-color: #16a34a;">🏢 Bay East Association Withdrawal: As of January 30, 2026, Bay East ends financial/staff support for local marketing groups (Tri-City, Castro Valley, Pleasanton). Groups must become self-sustaining through sponsorships, merge, or disband. Some brokerages offering free venues to maintain networking opportunities.</li>
+        <li style="border-left-color: #16a34a;">💡 Strategic Tax Planning: Independent contractors face two paths - (1) Tax Minimization: maximize expenses to lower net income and tax burden, or (2) Income Justification: show higher net income for loan qualification while contributing up to $70,000 (or 25% of income) to self-employment retirement accounts. Ages 60-63 qualify for &#039;Super Catch-Up&#039; provision with additional $11,000 retirement contributions.</li>
+        <li style="border-left-color: #16a34a;">📉 Interest Rate Environment: Jumbo loan rates decreased from 6% to 5.875% for zero-point loans, stimulating buyer demand. Properties in $1.1M-$1.2M range attracting 50+ buyers at open houses. Bond market (not Federal Reserve) remains primary driver of rate movements.</li>
+        <li style="border-left-color: #16a34a;">🏡 Down Payment Assistance Programs: Zero-Down options available (second mortgage for 3% down at ~6.75% rate, 600+ credit score required). CalHFA &#039;Dream for All&#039; provides 20% down via equity-share (state receives 20% of appreciation), limited to first-generation homebuyers, lottery selection in April 2026. Alameda County program lotteries held annually in May and September.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title" style="border-bottom-color: #ea580c;">
+          <span class="emoji">📚</span>
+          <span style="color: #ea580c;">Media & Reference Library</span>
+        </h2>
+        <ul>
+        <li style="border-left-color: #ea580c;">📹 Session Recording: <a href="https://youtu.be/k8gwGpfEohA?si=XdE-7W4854Ta9UHz" style="color: #2563eb; text-decoration: underline;" target="_blank">https://youtu.be/k8gwGpfEohA?si=XdE-7W4854Ta9UHz</a></li>
+        <li style="border-left-color: #ea580c;">📊 Presentation Slides: <a href="https://example.com/slides" style="color: #2563eb; text-decoration: underline;" target="_blank">https://example.com/slides</a></li>
+        <li style="border-left-color: #ea580c;">📸 Property Photos: <a href="https://example.com/photos" style="color: #2563eb; text-decoration: underline;" target="_blank">https://example.com/photos</a></li>
+        <li style="border-left-color: #ea580c;">📝 Meeting Notes Document: <a href="https://example.com/notes" style="color: #2563eb; text-decoration: underline;" target="_blank">https://example.com/notes</a></li>
+        <div class="video-embed-container" style="border-left-color: #ea580c;">
+          <div class="video-embed-title">
+            <span style="font-size: 20px;">🎬</span>
+            <span>Short Video</span>
+          </div>
+          <div class="sp-embed-player" data-id="cOnfbQn3J4A" data-aspect-ratio="1.777778" data-padding-top="56.250000%" style="position:relative;width:100%;padding-top:56.250000%;height:0;">
+            <script src="https://go.screenpal.com/consumption/player_appearance/cOnfbQn3J4A/1.777778"></script>
+            <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" scrolling="no" src="https://go.screenpal.com/player/cOnfbQn3J4A?ff=1&ahc=1&dcc=1&bg=transparent&share=1&download=1&embed=1&cl=1" allowfullscreen="true"></iframe>
+          </div>
+          <div class="video-fullscreen-link">
+            <a href="https://go.screenpal.com/watch/cOnfbQn3J4A" target="_blank">🎯 Open in full screen for the best viewing experience <span class="icon">↗</span></a>
+          </div>
+        </div>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title" style="border-bottom-color: #9333ea;">
+          <span class="emoji">🧰</span>
+          <span style="color: #9333ea;">Digital Toolkit</span>
+        </h2>
+        <ul>
+        <li style="border-left-color: #9333ea;">📚 <a href="https://user8888-level3.github.io/2026TaxLaw-RE/" style="color: #2563eb; text-decoration: underline;" target="_blank">Complete Study Resources Portal</a> - Flashcards, presentations, and PDF downloads</li>
+        <li style="border-left-color: #9333ea;">🔗 CRM System Comparison Guide</li>
+        <li style="border-left-color: #9333ea;">📱 Social Media Content Templates</li>
+        <li style="border-left-color: #9333ea;">📊 Market Analysis Dashboard</li>
+        <li style="border-left-color: #9333ea;">📧 Email Campaign Templates</li>
+        <li style="border-left-color: #9333ea;">🏠 Property Listing Checklist</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p class="brand">REALTY EXPERTS</p>
+      <p>Executive Meeting Notes · February 4, 2026</p>
+    </div>
+  </div>
+</body>
+</html>
